@@ -1,0 +1,9 @@
+/bin
+/obj
+/ipch
+*.opensdf
+*.sdf
+*.suo
+*.vcxproj.user
+*.nupkg
+*.aps

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5C884564-42E8-4B87-9E3F-8CFC2E002E1A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>xxaml</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/win-$(Platform)-$(Configuration)/$(ProjectName)</OutDir>
+    <IntDir>$(SolutionDir)obj/win-$(Platform)-$(Configuration)/$(ProjectName)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin/win-$(Platform)-$(Configuration)/$(ProjectName)</OutDir>
+    <IntDir>$(SolutionDir)obj/win-$(Platform)-$(Configuration)/$(ProjectName)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;XXAML_EXPORTS;USE_INTERNAL;_DEBUG;_WINDOWS;_USRDLL;XXAML_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>pch.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(WindowsSdkDir)Lib\winv6.3\um\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenGL32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;XXAML_EXPORTS;USE_INTERNAL;NDEBUG;_WINDOWS;_USRDLL;XXAML_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile>pch.hpp</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(WindowsSdkDir)Lib\winv6.3\um\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenGL32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\exports.hpp" />
+    <ClInclude Include="include\foundation\xobject_sptr.h" />
+    <ClInclude Include="include\foundation\math.hpp" />
+    <ClInclude Include="include\foundation\property_type.hpp" />
+    <ClInclude Include="include\foundation\type_name.hpp" />
+    <ClInclude Include="include\foundation\xbox.hpp" />
+    <ClInclude Include="include\foundation\xobject.hpp" />
+    <ClInclude Include="include\foundation\xstring.hpp" />
+    <ClInclude Include="include\graphics\drawing_context.hpp" />
+    <ClInclude Include="include\ui\basic_structures.hpp" />
+    <ClInclude Include="include\ui\core\win32\core_dispatcher.hpp" />
+    <ClInclude Include="include\ui\core\core_dispatcher.hpp" />
+    <ClInclude Include="include\ui\core\win32\core_window.hpp" />
+    <ClInclude Include="include\ui\core\core_window.hpp" />
+    <ClInclude Include="include\ui\core\window_state.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\content_control.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\control.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\border.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\frame.hpp" />
+    <ClInclude Include="include\ui\xaml\dependency_object.hpp" />
+    <ClInclude Include="include\ui\xaml\dependency_property.hpp" />
+    <ClInclude Include="include\ui\xaml\framework_element.hpp" />
+    <ClInclude Include="include\ui\xaml\media\brush.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\page.hpp" />
+    <ClInclude Include="include\ui\xaml\property_metadata.hpp" />
+    <ClInclude Include="include\ui\xaml\uielement.hpp" />
+    <ClInclude Include="include\ui\xaml\controls\user_control.hpp" />
+    <ClInclude Include="include\ui\xaml\visibility.hpp" />
+    <ClInclude Include="include\foundation\xresult.hpp" />
+    <ClInclude Include="include\xxaml.hpp" />
+    <ClInclude Include="src\basics.hpp" />
+    <ClInclude Include="src\macros.hpp" />
+    <ClInclude Include="src\pch.hpp" />
+    <ClInclude Include="include\ui\core\win32\window_message.hpp" />
+    <ClInclude Include="src\win\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\foundation\xbox.cpp" />
+    <ClCompile Include="src\foundation\xobject.cpp" />
+    <ClCompile Include="src\graphics\drawing_context-gl.cpp" />
+    <ClCompile Include="src\ui\core\win32\core_dispatcher.cpp" />
+    <ClCompile Include="src\ui\core\win32\core_window.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\content_control.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\control.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\border.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\frame.cpp" />
+    <ClCompile Include="src\ui\xaml\dependency_object.cpp" />
+    <ClCompile Include="src\ui\xaml\dependency_property.cpp" />
+    <ClCompile Include="src\ui\xaml\framework_element.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\page.cpp" />
+    <ClCompile Include="src\ui\xaml\property_metadata.cpp" />
+    <ClCompile Include="src\ui\xaml\uielement.cpp" />
+    <ClCompile Include="src\ui\xaml\controls\user_control.cpp" />
+    <ClCompile Include="src\win\dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\xxaml.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

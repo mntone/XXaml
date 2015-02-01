@@ -100,9 +100,9 @@
     <ClInclude Include="include\foundation\xstring.hpp" />
     <ClInclude Include="include\graphics\drawing_context.hpp" />
     <ClInclude Include="include\ui\basic_structures.hpp" />
-    <ClInclude Include="include\ui\core\win32\core_dispatcher.hpp" />
+    <ClInclude Include="src\ui\core\win32\core_dispatcher.hpp" />
     <ClInclude Include="include\ui\core\core_dispatcher.hpp" />
-    <ClInclude Include="include\ui\core\win32\core_window.hpp" />
+    <ClInclude Include="src\ui\core\win32\core_window.hpp" />
     <ClInclude Include="include\ui\core\core_window.hpp" />
     <ClInclude Include="include\ui\core\window_state.hpp" />
     <ClInclude Include="include\ui\xaml\controls\content_control.hpp" />
@@ -123,7 +123,7 @@
     <ClInclude Include="src\basics.hpp" />
     <ClInclude Include="src\macros.hpp" />
     <ClInclude Include="src\pch.hpp" />
-    <ClInclude Include="include\ui\core\win32\window_message.hpp" />
+    <ClInclude Include="src\ui\core\win32\window_message.hpp" />
     <ClInclude Include="src\win\targetver.h" />
   </ItemGroup>
   <ItemGroup>

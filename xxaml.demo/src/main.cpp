@@ -1,7 +1,7 @@
 #include "pch.hpp"
 #include <xxaml.hpp>
-#include <ui/core/win32/core_window.hpp>
 #include <graphics/drawing_context.hpp>
+#include <ui/core/core_window.hpp>
 #include <ui/xaml/controls/frame.hpp>
 #include <ui/xaml/controls/page.hpp>
 #include <ui/xaml/controls/border.hpp>
@@ -15,7 +15,8 @@ int APIENTRY wWinMain( _In_ HINSTANCE hinstance, _In_opt_  HINSTANCE /*hPrevInst
 {
 	xresult xr = xresult::ok;
 
-	xobject_sptr<core_window_win32> w = new core_window_win32();
+	xobject_sptr<core_window> w;
+	xr = core_window::create( w );
 	xr = w->activate();
 
 	xobject_sptr<border> b = new border();

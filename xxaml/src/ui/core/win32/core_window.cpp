@@ -10,6 +10,14 @@ using namespace xxaml::foundation;
 using namespace xxaml::ui;
 using namespace xxaml::ui::core;
 
+xresult core_window::create( core_window** result )
+{
+	NEW_AND_CHECK( ret, core_window_win32 );
+
+	*result = ret;
+	return xresult::ok;
+}
+
 enum class ProcessDpiAwareness
 {
 	Unaware = 0,

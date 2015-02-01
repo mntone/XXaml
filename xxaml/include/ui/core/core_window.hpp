@@ -15,6 +15,8 @@ namespace core {
 		XXAML_IMPORT virtual foundation::xresult activate() = 0;
 		XXAML_IMPORT virtual foundation::xresult close() = 0;
 
+		XXAML_IMPORT static foundation::xresult create( core_window** result );
+
 	public:
 		XXAML_IMPORT virtual foundation::xresult dispatcher( core_dispatcher** result ) const = 0;
 

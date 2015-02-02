@@ -18,7 +18,7 @@ namespace xxaml { namespace ui { namespace xaml {
 		static foundation::xresult initialize_property();
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 
 		XXAML_IMPORT foundation::xresult parent( foundation::xobject** result ) const;
 

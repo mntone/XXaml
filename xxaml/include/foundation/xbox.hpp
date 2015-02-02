@@ -109,7 +109,7 @@ namespace xxaml { namespace foundation {
 		XXAML_IMPORT xresult get_corner_radius_array( int* length, ui::xaml::corner_radius** result ) const;
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type();
+		XXAML_IMPORT virtual foundation::type_name type() const;
 		XXAML_IMPORT property_type box_type() const;
 
 	private:

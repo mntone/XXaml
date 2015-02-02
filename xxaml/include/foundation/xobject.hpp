@@ -16,7 +16,7 @@ namespace xxaml { namespace foundation {
 		xobject();
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type();
+		XXAML_IMPORT virtual foundation::type_name type() const;
 
 	private:
 		::std::atomic_int reference_count_;

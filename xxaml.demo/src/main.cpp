@@ -15,8 +15,10 @@ int APIENTRY wWinMain( _In_ HINSTANCE hinstance, _In_opt_  HINSTANCE /*hPrevInst
 {
 	xresult xr = xresult::ok;
 
-	xobject_sptr<core_window> w;
-	xr = core_window::create( w );
+	core_window* wnd;
+	xr = core_window::create( &wnd );
+
+	xobject_sptr<core_window> w = wnd;
 	xr = w->activate();
 
 	xobject_sptr<border> b = new border();
@@ -29,9 +31,11 @@ int APIENTRY wWinMain( _In_ HINSTANCE hinstance, _In_opt_  HINSTANCE /*hPrevInst
 	xr = f->navigate_with_tree( p );
 	xr = w->set_content( f );
 
-	xobject_sptr<core_dispatcher> disp;
-	xr = w->dispatcher( disp );
-	disp->process_events();
+	core_dispatcher* d = nullptr;
+	xr = w->dispatcher( &d );
+
+	xobject_sptr<core_dispatcher> sd = d;
+	sd->process_events();
 
 	return 0;
 }

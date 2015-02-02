@@ -14,20 +14,20 @@ xresult user_control::initialize_property()
 {
 	xresult xr = xresult::ok;
 
-	xobject_sptr<property_metadata> metadata;
-	xr = property_metadata::create( reinterpret_cast<xobject*>( nullptr ), metadata );
+	property_metadata* metadata = nullptr;
+	xr = property_metadata::create( reinterpret_cast<xobject*>( nullptr ), &metadata );
 	if( xr != xresult::ok )
 	{
 		return xr;
 	}
 
-	xobject_sptr<dependency_property> content_property;
+	dependency_property* content_property = nullptr;
 	xr = dependency_property::register_property(
 		TEXT( L"Content" ),
 		TYPE( xxaml__ui__xaml__uielement ),
 		TYPE( xxaml__ui__xaml__controls__user_control ),
 		metadata,
-		content_property );
+		&content_property );
 
 	content_property_ = content_property;
 	return xr;
@@ -44,8 +44,8 @@ user_control::user_control()
 	}
 }
 
-type_name user_control::type() { return TYPE( xxaml__ui__xaml__controls__user_control ); }
 
+type_name user_control::type() const { return TYPE( xxaml__ui__xaml__controls__user_control ); }
 
 xresult user_control::content( uielement** result ) const
 {

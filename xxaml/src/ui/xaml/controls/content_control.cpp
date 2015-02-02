@@ -10,4 +10,4 @@ content_control::content_control()
 	: control()
 { }
 
-type_name content_control::type() { return TYPE( xxaml__ui__xaml__controls__content_control ); }
+type_name content_control::type() const { return TYPE( xxaml__ui__xaml__controls__content_control ); }

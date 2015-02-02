@@ -29,7 +29,7 @@ namespace xxaml { namespace ui { namespace xaml {
 		XXAML_IMPORT foundation::xresult set_visibility( xaml::visibility value );
 		XXAML_IMPORT static dependency_property* visibility_property();
 
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 
 	protected:
 		XXAML_IMPORT foundation::xresult set_desired_size( ::xxaml::ui::size desired_size );

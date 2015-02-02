@@ -540,7 +540,7 @@ xresult xbox::get_corner_radius_array( int* length, ui::xaml::corner_radius** re
 }
 
 
-type_name xbox::type() { return TYPE( xxaml__foundation__xbox ); }
+type_name xbox::type() const { return TYPE( xxaml__foundation__xbox ); }
 
 property_type xbox::box_type() const
 {

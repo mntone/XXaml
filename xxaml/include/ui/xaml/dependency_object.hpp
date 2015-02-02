@@ -18,7 +18,7 @@ namespace xxaml { namespace ui { namespace xaml {
 		XXAML_IMPORT dependency_object();
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 		XXAML_IMPORT core::core_dispatcher const* dispatcher() const;
 
 	private:

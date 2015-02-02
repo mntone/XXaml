@@ -26,7 +26,7 @@ namespace xxaml { namespace ui { namespace xaml {
 		XXAML_IMPORT static foundation::xresult create( create_default_value_callback_type create_default_value_callback, property_changed_callback_type property_changed_callback, property_metadata** result );
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 
 	private:
 		foundation::xobject_sptr<foundation::xobject> default_value_;

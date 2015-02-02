@@ -15,7 +15,7 @@ namespace xxaml { namespace ui { namespace xaml { namespace controls {
 		XXAML_IMPORT foundation::xresult navigate_with_tree( page* root_object );
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 
 	public:
 		foundation::xobject_sptr<page> page_;

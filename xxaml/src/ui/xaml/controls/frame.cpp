@@ -17,4 +17,4 @@ xresult frame::navigate_with_tree( page* root_object )
 }
 
 
-type_name frame::type() { return TYPE( xxaml__ui__xaml__controls__frame ); }
+type_name frame::type() const { return TYPE( xxaml__ui__xaml__controls__frame ); }

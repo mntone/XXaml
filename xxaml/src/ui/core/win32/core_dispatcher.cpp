@@ -34,11 +34,11 @@ void core_dispatcher_win32::process_events()
 #include "ui/xaml/controls/border.hpp"
 void paint_dev( frame* c )
 {
-	xxaml::graphics::drawing_context d;
-	xobject_sptr<page> p = c->page_;
-	xobject_sptr<xxaml::ui::xaml::uielement> bb;
-	p->content( bb );
-	xobject_sptr<border> b = static_cast<border*>( bb.value() );
+	//xxaml::graphics::drawing_context d;
+	//xobject_sptr<page> p = c->page_;
+	//xobject_sptr<xxaml::ui::xaml::uielement> bb;
+	//p->content( bb );
+	//xobject_sptr<border> b = static_cast<border*>( bb.value() );
 
 }
 
@@ -49,9 +49,9 @@ LRESULT core_dispatcher_win32::window_procedure( HWND hwnd, window_message messa
 	case window_message::wmpaint:
 		if( parent_ != nullptr )
 		{
-			xobject_sptr<frame> content;
-			parent_->content( content );
-			paint_dev( content );
+			//xobject_sptr<frame> content;
+			//parent_->content( content );
+			//paint_dev( content );
 		}
 		break;
 
@@ -86,6 +86,9 @@ LRESULT CALLBACK core_dispatcher_win32::window_procedure_lancher( HWND hwnd, UIN
 	xobject_sptr<core_dispatcher_win32> sd = dispatcher;
 	return sd->window_procedure( hwnd, static_cast<window_message>( message ), wparam, lparam );
 }
+
+
+type_name core_dispatcher_win32::type() const { return TYPE( xxaml__ui__core__core_dispatcher ); }
 
 bool core_dispatcher_win32::has_thread_access() const
 {

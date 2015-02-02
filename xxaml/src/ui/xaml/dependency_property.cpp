@@ -90,7 +90,7 @@ xresult dependency_property::register_common(
 }
 
 
-type_name dependency_property::type() { return TYPE( xxaml__ui__xaml__dependency_property ); }
+type_name dependency_property::type() const { return TYPE( xxaml__ui__xaml__dependency_property ); }
 xstring dependency_property::name() const { return name_; }
 type_name dependency_property::property_type() const { return property_type_; }
 type_name dependency_property::owner_type() const { return owner_type_; }

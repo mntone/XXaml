@@ -10,4 +10,4 @@ control::control()
 	: framework_element()
 { }
 
-type_name control::type() { return TYPE( xxaml__ui__xaml__controls__control ); }
+type_name control::type() const { return TYPE( xxaml__ui__xaml__controls__control ); }

@@ -11,7 +11,7 @@ namespace xxaml { namespace ui { namespace xaml { namespace controls {
 		XXAML_IMPORT control();
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override;
 	};
 
 } } } }

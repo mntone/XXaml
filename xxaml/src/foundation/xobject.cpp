@@ -15,11 +15,29 @@ xobject::~xobject()
 
 int xobject::add()
 {
+#ifdef _DEBUG
+	wchar_t buf[64];
+	swprintf_s( buf, L"[ADD] type: %s (%d++)\n", type().type.value, reference_count_.load() );
+	OutputDebugStringW( buf );
+#endif
+
 	return reference_count_.fetch_add( 1 ) + 1;
 }
 
 int xobject::release()
 {
+#ifdef _DEBUG
+	auto v = reference_count_.load();
+	if( v == 0 )
+	{
+		assert( v );
+	}
+
+	wchar_t buf[64];
+	swprintf_s( buf, L"[REL] type: %s (%d--)\n", type().type.value, v );
+	OutputDebugStringW( buf );
+#endif
+
 	size_t const val = reference_count_.fetch_sub( 1 ) - 1;
 	if( val == 0 )
 	{
@@ -29,4 +47,5 @@ int xobject::release()
 	return val;
 }
 
-type_name xobject::type() { return TYPE( xxaml__foundation__xobject ); }
+
+type_name xobject::type() const { return TYPE( xxaml__foundation__xobject ); }

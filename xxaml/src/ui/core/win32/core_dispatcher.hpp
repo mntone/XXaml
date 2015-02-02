@@ -19,6 +19,7 @@ namespace xxaml { namespace ui { namespace core {
 		static LRESULT CALLBACK window_procedure_lancher( HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam );
 
 	public:
+		XXAML_IMPORT virtual foundation::type_name type() const override final;
 		XXAML_IMPORT virtual bool has_thread_access() const;
 
 	private:

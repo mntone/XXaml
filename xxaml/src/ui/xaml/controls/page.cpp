@@ -10,4 +10,5 @@ page::page()
 	: user_control()
 { }
 
-type_name page::type() { return TYPE( xxaml__ui__xaml__controls__page ); }
+
+type_name page::type() const { return TYPE( xxaml__ui__xaml__controls__page ); }

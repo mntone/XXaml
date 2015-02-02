@@ -15,19 +15,22 @@ xresult uielement::initialize_property()
 	xresult xr = xresult::ok;
 	auto visibility_visible_box = new xbox( static_cast<unsigned char>( visibility::visible ) );
 
-	xobject_sptr<property_metadata> metadata;
-	xr = property_metadata::create( visibility_visible_box, metadata );
+	property_metadata* metadata = nullptr;
+	xr = property_metadata::create( visibility_visible_box, &metadata );
 	if( xr != xresult::ok )
 	{
 		return xr;
 	}
 
+	dependency_property* visibility_property = nullptr;
 	xr = dependency_property::register_property(
 		TEXT( L"Visibility" ),
 		TYPE( xxaml__ui__xaml__visibility ),
 		TYPE( xxaml__ui__xaml__uielement ),
 		metadata,
-		visibility_property_ );
+		&visibility_property );
+
+	visibility_property_ = visibility_property;
 	return xr;
 }
 
@@ -82,18 +85,18 @@ xresult uielement::set_desired_size( size desired_size )
 }
 
 
-type_name uielement::type() { return TYPE( xxaml__ui__xaml__uielement ); }
+type_name uielement::type() const { return TYPE( xxaml__ui__xaml__uielement ); }
 
 xresult uielement::visibility( ::visibility* result ) const
 {
-	xobject_sptr<xobject> obj;
-	xresult xr = get_value( visibility_property_, obj );
+	xobject* obj = nullptr;
+	xresult xr = get_value( visibility_property_, &obj );
 	if( xr != xresult::ok )
 	{
 		return xr;
 	}
 
-	xobject_sptr<xbox> box = static_cast<xbox*>( obj.value() );
+	xobject_sptr<xbox> box = static_cast<xbox*>( obj );
 	::visibility v;
 	xr = box->get_uint8( reinterpret_cast<unsigned char*>( &v ) );
 	if( xr != xresult::ok )

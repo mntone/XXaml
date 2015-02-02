@@ -36,9 +36,11 @@ xresult dependency_object::get_value( dependency_property const* dp, xobject** r
 
 xresult dependency_object::set_value( dependency_property const* dp, xobject* value )
 {
+	NULL_CHECK( value );
+
 	auto key = from_name( dp );
 	auto itr = property_map_.find( key );
-	if( itr != property_map_.cend() && itr->second.value() != nullptr )
+	if( itr != property_map_.cend() )
 	{
 		itr->second = value;
 		return xresult::ok;
@@ -47,5 +49,5 @@ xresult dependency_object::set_value( dependency_property const* dp, xobject* va
 	return xresult::ok;
 }
 
-type_name dependency_object::type() { return TYPE( xxaml__ui__xaml__dependency_object ); }
+type_name dependency_object::type() const { return TYPE( xxaml__ui__xaml__dependency_object ); }
 core_dispatcher const* dependency_object::dispatcher() const { return dispatcher_; }

@@ -64,7 +64,7 @@ namespace xxaml { namespace ui { namespace xaml {
 			dependency_property** result );
 
 	public:
-		XXAML_IMPORT virtual foundation::type_name type() override;
+		XXAML_IMPORT virtual foundation::type_name type() const override final;
 		XXAML_IMPORT foundation::xstring name() const;
 		XXAML_IMPORT foundation::type_name property_type() const;
 		XXAML_IMPORT foundation::type_name owner_type() const;

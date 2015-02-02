@@ -57,7 +57,7 @@ namespace xxaml { namespace foundation {
 
 		xobject_sptr& operator=( xobject_sptr const& other )
 		{
-			xobject_sptr( other ).swap( *this );
+			reset( other.value_ );
 			return *this;
 		}
 
@@ -90,7 +90,7 @@ namespace xxaml { namespace foundation {
 			::std::swap( value_, value );
 			if( value != nullptr )
 			{
-				static_cast<xobject&>( *value_ ).release();
+				static_cast<xobject&>( *value ).release();
 			}
 		}
 
@@ -102,11 +102,6 @@ namespace xxaml { namespace foundation {
 		operator T*() const
 		{
 			return value_;
-		}
-
-		operator T**()
-		{
-			return &value_;
 		}
 
 		T* operator->() const

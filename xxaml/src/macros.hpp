@@ -13,22 +13,22 @@
 #define GET_CASTED_VALUE( __DP__, __TYPE__, __RESULT__ ) \
 	::xxaml::foundation::xresult xresult__ = ::xxaml::foundation::xresult::ok; \
 	\
-	::xxaml::foundation::xobject_sptr<::xxaml::foundation::xobject> xobject_value__; \
-	xresult__ = get_value( __DP__, xobject_value__ ); \
+	::xxaml::foundation::xobject* xobject_value__ = nullptr; \
+	xresult__ = get_value( __DP__, &xobject_value__ ); \
 	if( xresult__ != ::xxaml::foundation::xresult::ok ) return xresult__; \
 	\
-	*__RESULT__ = static_cast<__TYPE__*>( xobject_value__.value() ); \
+	*__RESULT__ = static_cast<__TYPE__*>( xobject_value__ ); \
 	return ::xxaml::foundation::xresult::ok;
 
 #define GET_BOXED_VALUE( __DP__, __TYPE__, __RESULT__ ) \
 	::xxaml::foundation::xresult xresult__ = ::xxaml::foundation::xresult::ok; \
 	\
-	::xxaml::foundation::xobject_sptr<::xxaml::foundation::xobject> xobject_value__; \
-	xresult__ = get_value( __DP__, xobject_value__ ); \
+	::xxaml::foundation::xobject* xobject_value__ = nullptr; \
+	xresult__ = get_value( __DP__, &xobject_value__ ); \
 	if( xresult__ != ::xxaml::foundation::xresult::ok ) return xresult__; \
 	if( wcscmp( xobject_value__->type().type.value, ::xxaml::foundation::xxaml__foundation__xbox ) != 0 ) return xresult::failed; \
 	\
-	::xxaml::foundation::xobject_sptr<::xxaml::foundation::xbox> box_value__ = static_cast<::xxaml::foundation::xbox*>( xobject_value__.value() ); \
+	::xxaml::foundation::xobject_sptr<::xxaml::foundation::xbox> box_value__ = static_cast<::xxaml::foundation::xbox*>( xobject_value__ ); \
 	__TYPE__ unboxed_value__; \
 	xresult__ = box_value__->get_ ## __TYPE__( &unboxed_value__ ); \
 	if( xresult__ != ::xxaml::foundation::xresult::ok ) return xresult__; \

@@ -49,4 +49,5 @@ xresult property_metadata::create( create_default_value_callback_type create_def
 	return xresult::ok;
 }
 
-type_name property_metadata::type() { return TYPE( xxaml__ui__xaml__property_metadata ); }
+
+type_name property_metadata::type() const { return TYPE( xxaml__ui__xaml__property_metadata ); }

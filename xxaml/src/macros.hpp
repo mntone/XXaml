@@ -7,8 +7,8 @@
 #define NEW_CHECK( __OBJECT__ ) if( ( __OBJECT__ ) == nullptr ) { return xresult::out_of_memory; }
 #define NEW_AND_CHECK( __VARIABLE_NAME__, __CLASS_NAME__ ) __CLASS_NAME__* __VARIABLE_NAME__ = new( ::std::nothrow ) __CLASS_NAME__(); NEW_CHECK( __VARIABLE_NAME__ );
 
-#define TEXT( __TEXT__ ) ::xxaml::foundation::xstring { __TEXT__, wcslen( __TEXT__ ) }
-#define TYPE( __TYPE_NAME__ ) ::xxaml::foundation::type_name { TEXT( __TYPE_NAME__ ) }
+#define TEXT( __TEXT__ ) new ::xxaml::foundation::xstring( __TEXT__, wcslen( __TEXT__ ) )
+#define TYPE( __TYPE_NAME__ ) ::xxaml::foundation::type_name { __TYPE_NAME__, wcslen( __TYPE_NAME__ ) }
 
 #define GET_CASTED_VALUE( __DP__, __TYPE__, __RESULT__ ) \
 	::xxaml::foundation::xresult xresult__ = ::xxaml::foundation::xresult::ok; \
@@ -26,7 +26,7 @@
 	::xxaml::foundation::xobject* xobject_value__ = nullptr; \
 	xresult__ = get_value( __DP__, &xobject_value__ ); \
 	if( xresult__ != ::xxaml::foundation::xresult::ok ) return xresult__; \
-	if( wcscmp( xobject_value__->type().type.value, ::xxaml::foundation::xxaml__foundation__xbox ) != 0 ) return xresult::failed; \
+	if( wcscmp( xobject_value__->type().name, ::xxaml::foundation::xxaml__foundation__xbox ) != 0 ) return xresult::failed; \
 	\
 	::xxaml::foundation::xobject_sptr<::xxaml::foundation::xbox> box_value__ = static_cast<::xxaml::foundation::xbox*>( xobject_value__ ); \
 	__TYPE__ unboxed_value__; \

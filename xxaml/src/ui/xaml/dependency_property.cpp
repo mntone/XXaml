@@ -10,12 +10,12 @@ from_name::from_name( dependency_property const* dp )
 	: from_name( dp->name(), dp->owner_type() )
 { }
 
-from_name::from_name( xstring name, type_name type )
+from_name::from_name( xstring* name, type_name type )
 	: name( name )
 	, type( type )
 {
 	auto hasher = ::std::hash<xstring>();
-	hash = hasher( name ) ^ hasher( type.type );
+	hash = hasher( name->value() ) ^ hasher( type.name );
 }
 
 ::std::mutex dependency_property::mutex_;
@@ -27,7 +27,7 @@ dependency_property::dependency_property()
 property_metadata const* dependency_property::get_metadata() const { return default_metadata_; }
 
 xresult dependency_property::register_property(
-	xstring name,
+	xstring* name,
 	type_name property_type,
 	type_name owner_type,
 	property_metadata* default_metadata,
@@ -37,7 +37,7 @@ xresult dependency_property::register_property(
 }
 
 xresult dependency_property::register_attached_property(
-	xstring name,
+	xstring* name,
 	type_name property_type,
 	type_name owner_type,
 	property_metadata* default_metadata,
@@ -47,7 +47,7 @@ xresult dependency_property::register_attached_property(
 }
 
 xresult dependency_property::register_common(
-	xstring name,
+	xstring* name,
 	type_name property_type,
 	type_name owner_type,
 	property_metadata* default_metadata,
@@ -91,6 +91,6 @@ xresult dependency_property::register_common(
 
 
 type_name dependency_property::type() const { return TYPE( xxaml__ui__xaml__dependency_property ); }
-xstring dependency_property::name() const { return name_; }
+xstring* dependency_property::name() const { return name_; }
 type_name dependency_property::property_type() const { return property_type_; }
 type_name dependency_property::owner_type() const { return owner_type_; }

@@ -91,7 +91,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\exports.hpp" />
-    <ClInclude Include="include\foundation\xobject_sptr.h" />
+    <ClInclude Include="include\foundation\xobject_sptr.hpp" />
     <ClInclude Include="include\foundation\math.hpp" />
     <ClInclude Include="include\foundation\property_type.hpp" />
     <ClInclude Include="include\foundation\type_name.hpp" />
@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="src\foundation\xbox.cpp" />
     <ClCompile Include="src\foundation\xobject.cpp" />
+    <ClCompile Include="src\foundation\xstring.cpp" />
     <ClCompile Include="src\graphics\drawing_context-gl.cpp" />
     <ClCompile Include="src\ui\core\win32\core_dispatcher.cpp" />
     <ClCompile Include="src\ui\core\win32\core_window.cpp" />

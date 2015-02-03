@@ -26,7 +26,7 @@ namespace xxaml { namespace ui { namespace core {
 		XXAML_IMPORT virtual foundation::xresult content( xaml::controls::frame** result ) const override;
 		XXAML_IMPORT virtual foundation::xresult set_content( xaml::controls::frame* value ) override;
 
-		XXAML_IMPORT virtual foundation::xresult title( foundation::xstring* result ) const override;
+		XXAML_IMPORT virtual foundation::xresult title( foundation::xstring** result ) const override;
 		XXAML_IMPORT virtual foundation::xresult window_state( core::window_state* result ) const override;
 		XXAML_IMPORT virtual foundation::xresult left( int* result ) const override;
 		XXAML_IMPORT virtual foundation::xresult top( int* result ) const override;
@@ -42,7 +42,7 @@ namespace xxaml { namespace ui { namespace core {
 		XXAML_IMPORT virtual foundation::xresult min( ui::size* result ) const override;
 		XXAML_IMPORT virtual foundation::xresult max( ui::size* result ) const override;
 
-		XXAML_IMPORT virtual foundation::xresult set_title( foundation::xstring value ) override;
+		XXAML_IMPORT virtual foundation::xresult set_title( foundation::xstring* value ) override;
 		XXAML_IMPORT virtual foundation::xresult set_window_state( core::window_state value ) override;
 		XXAML_IMPORT virtual foundation::xresult set_left( int value ) override;
 		XXAML_IMPORT virtual foundation::xresult set_top( int value ) override;

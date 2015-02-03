@@ -17,7 +17,7 @@ int xobject::add()
 {
 #ifdef _DEBUG
 	wchar_t buf[64];
-	swprintf_s( buf, L"[ADD] type: %s (%d++)\n", type().type.value, reference_count_.load() );
+	swprintf_s( buf, L"[ADD] type: %s (%d++)\n", type().name, reference_count_.load() );
 	OutputDebugStringW( buf );
 #endif
 
@@ -34,7 +34,7 @@ int xobject::release()
 	}
 
 	wchar_t buf[64];
-	swprintf_s( buf, L"[REL] type: %s (%d--)\n", type().type.value, v );
+	swprintf_s( buf, L"[REL] type: %s (%d--)\n", type().name, v );
 	OutputDebugStringW( buf );
 #endif
 

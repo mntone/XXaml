@@ -93,9 +93,6 @@
     <ClInclude Include="src\basics.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\foundation\xobject_sptr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\ui\core\core_window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -124,6 +121,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ui\core\win32\window_message.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\foundation\xobject_sptr.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -183,6 +183,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ui\xaml\controls\content_control.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\foundation\xstring.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

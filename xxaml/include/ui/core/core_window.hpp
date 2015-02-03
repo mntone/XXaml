@@ -23,7 +23,7 @@ namespace core {
 		XXAML_IMPORT virtual foundation::xresult content( xaml::controls::frame** result ) const = 0;
 		XXAML_IMPORT virtual foundation::xresult set_content( xaml::controls::frame* value ) = 0;
 
-		XXAML_IMPORT virtual foundation::xresult title( foundation::xstring* result ) const = 0;
+		XXAML_IMPORT virtual foundation::xresult title( foundation::xstring** result ) const = 0;
 		XXAML_IMPORT virtual foundation::xresult window_state( core::window_state* result ) const = 0;
 		XXAML_IMPORT virtual foundation::xresult left( int* result ) const = 0;
 		XXAML_IMPORT virtual foundation::xresult top( int* result ) const = 0;
@@ -39,7 +39,7 @@ namespace core {
 		XXAML_IMPORT virtual foundation::xresult min( ui::size* result ) const = 0;
 		XXAML_IMPORT virtual foundation::xresult max( ui::size* result ) const = 0;
 
-		XXAML_IMPORT virtual foundation::xresult set_title( foundation::xstring value ) = 0;
+		XXAML_IMPORT virtual foundation::xresult set_title( foundation::xstring* value ) = 0;
 		XXAML_IMPORT virtual foundation::xresult set_window_state( core::window_state value ) = 0;
 		XXAML_IMPORT virtual foundation::xresult set_left( int value ) = 0;
 		XXAML_IMPORT virtual foundation::xresult set_top( int value ) = 0;

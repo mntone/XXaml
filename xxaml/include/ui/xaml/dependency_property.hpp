@@ -1,10 +1,6 @@
 #pragma once
 #include "property_metadata.hpp"
-
-#ifdef INTERNAL
-#include "foundation/xstring.hpp"
 #include "foundation/type_name.hpp"
-#endif
 
 namespace xxaml { namespace ui { namespace xaml {
 
@@ -12,12 +8,12 @@ namespace xxaml { namespace ui { namespace xaml {
 
 	struct from_name final
 	{
-		foundation::xstring name;
+		foundation::xobject_sptr<foundation::xstring> name;
 		foundation::type_name type;
 		::std::size_t hash;
 
 		from_name( dependency_property const* dp );
-		from_name( foundation::xstring name, foundation::type_name type );
+		from_name( foundation::xstring* name, foundation::type_name type );
 
 		bool operator==( from_name const& other ) const
 		{
@@ -50,14 +46,14 @@ namespace xxaml { namespace ui { namespace xaml {
 
 	public:
 		XXAML_IMPORT static foundation::xresult register_property(
-			foundation::xstring name,
+			foundation::xstring* name,
 			foundation::type_name property_type,
 			foundation::type_name owner_type,
 			property_metadata* default_metadata,
 			dependency_property** result );
 
 		XXAML_IMPORT static foundation::xresult register_attached_property(
-			foundation::xstring name,
+			foundation::xstring* name,
 			foundation::type_name property_type,
 			foundation::type_name owner_type,
 			property_metadata* default_metadata,
@@ -65,7 +61,7 @@ namespace xxaml { namespace ui { namespace xaml {
 
 	public:
 		XXAML_IMPORT virtual foundation::type_name type() const override final;
-		XXAML_IMPORT foundation::xstring name() const;
+		XXAML_IMPORT foundation::xstring* name() const;
 		XXAML_IMPORT foundation::type_name property_type() const;
 		XXAML_IMPORT foundation::type_name owner_type() const;
 
@@ -74,14 +70,14 @@ namespace xxaml { namespace ui { namespace xaml {
 
 	private:
 		static foundation::xresult register_common(
-			foundation::xstring name,
+			foundation::xstring* name,
 			foundation::type_name property_type,
 			foundation::type_name owner_type,
 			property_metadata* default_metadata,
 			dependency_property** result );
 
 	private:
-		foundation::xstring name_;
+		foundation::xobject_sptr<foundation::xstring> name_;
 		foundation::type_name property_type_;
 		foundation::type_name owner_type_;
 		foundation::xobject_sptr<property_metadata> default_metadata_;

@@ -247,7 +247,7 @@ xresult core_window_win32::set_content( xaml::controls::frame* value )
 }
 
 
-xresult core_window_win32::title( xstring* result ) const
+xresult core_window_win32::title( xstring** result ) const
 {
 	return xresult::ok;
 }
@@ -400,7 +400,7 @@ xresult core_window_win32::max( ::size* result ) const
 }
 
 
-xresult core_window_win32::set_title( xstring value )
+xresult core_window_win32::set_title( xstring* value )
 {
 	if( !initialized_ )
 	{

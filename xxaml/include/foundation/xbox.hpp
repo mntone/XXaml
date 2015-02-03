@@ -3,6 +3,7 @@
 #include "ui/basic_structures.hpp"
 #include "xresult.hpp"
 #include "xobject.hpp"
+#include "xstring.hpp"
 
 namespace xxaml { namespace foundation {
 
@@ -15,8 +16,8 @@ namespace xxaml { namespace foundation {
 		XXAML_IMPORT xbox( ::std::nullptr_t );
 		XXAML_IMPORT xbox( bool value );
 		XXAML_IMPORT xbox( wchar_t value );
-		XXAML_IMPORT xbox( xstring value );
-		XXAML_IMPORT xbox( xobject const* value );
+		XXAML_IMPORT xbox( xstring* value );
+		XXAML_IMPORT xbox( xobject* value );
 
 		XXAML_IMPORT xbox( short value );
 		XXAML_IMPORT xbox( int value );
@@ -40,8 +41,8 @@ namespace xxaml { namespace foundation {
 
 		XXAML_IMPORT xbox( bool* value, int length );
 		XXAML_IMPORT xbox( wchar_t* value, int length );
-		XXAML_IMPORT xbox( xstring* value, int length );
-		XXAML_IMPORT xbox( xobject const** value, int length );
+		XXAML_IMPORT xbox( xstring** value, int length );
+		XXAML_IMPORT xbox( xobject** value, int length );
 
 		XXAML_IMPORT xbox( short* value, int length );
 		XXAML_IMPORT xbox( int* value, int length );
@@ -65,8 +66,8 @@ namespace xxaml { namespace foundation {
 
 		XXAML_IMPORT xresult get_boolean( bool* result ) const;
 		XXAML_IMPORT xresult get_char16( wchar_t* result ) const;
-		XXAML_IMPORT xresult get_string( xstring* result ) const;
-		XXAML_IMPORT xresult get_xobject( xobject const** result ) const;
+		XXAML_IMPORT xresult get_xstring( xstring** result ) const;
+		XXAML_IMPORT xresult get_xobject( xobject** result ) const;
 
 		XXAML_IMPORT xresult get_int16( short* result ) const;
 		XXAML_IMPORT xresult get_int32( int* result ) const;
@@ -88,8 +89,8 @@ namespace xxaml { namespace foundation {
 
 		XXAML_IMPORT xresult get_boolean_array( int* length, bool** result ) const;
 		XXAML_IMPORT xresult get_char16_array( int* length, wchar_t** result ) const;
-		XXAML_IMPORT xresult get_string_array( int* length, xstring** result ) const;
-		XXAML_IMPORT xresult get_xobject_array( int* length, xobject const*** result ) const;
+		XXAML_IMPORT xresult get_string_array( int* length, xstring*** result ) const;
+		XXAML_IMPORT xresult get_xobject_array( int* length, xobject*** result ) const;
 
 		XXAML_IMPORT xresult get_int16_array( int* length, short** result ) const;
 		XXAML_IMPORT xresult get_int32_array( int* length, int** result ) const;
@@ -118,8 +119,8 @@ namespace xxaml { namespace foundation {
 		{
 			bool boolean_;
 			wchar_t char16_;
-			xstring string_;
-			xobject const* xobject_;
+			xstring* xstring_;
+			xobject* xobject_;
 
 			short int16_;
 			int int32_;
@@ -146,8 +147,8 @@ namespace xxaml { namespace foundation {
 				{
 					bool* boolean_array_;
 					wchar_t* char16_array_;
-					xstring* string_array_;
-					xobject const** xobject_array_;
+					xstring** xstring_array_;
+					xobject** xobject_array_;
 
 					short* int16_array_;
 					int* int32_array_;

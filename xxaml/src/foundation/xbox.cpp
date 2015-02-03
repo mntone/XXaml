@@ -24,12 +24,12 @@ xbox::xbox( wchar_t value )
 	, char16_( value )
 { }
 
-xbox::xbox( xstring value )
+xbox::xbox( xstring* value )
 	: type_( property_type::string )
-	, string_( value )
+	, xstring_( value )
 { }
 
-xbox::xbox( xobject const* value )
+xbox::xbox( xobject* value )
 	: type_( property_type::xobject )
 	, xobject_( value )
 { }
@@ -112,13 +112,13 @@ xbox::xbox( wchar_t* value, int length )
 	, length_( length )
 { }
 
-xbox::xbox( xstring* value, int length )
+xbox::xbox( xstring** value, int length )
 	: type_( property_type::string_array )
-	, string_array_( value )
+	, xstring_array_( value )
 	, length_( length )
 { }
 
-xbox::xbox( xobject const** value, int length )
+xbox::xbox( xobject** value, int length )
 	: type_( property_type::xobject_array )
 	, xobject_array_( value )
 	, length_( length )
@@ -223,17 +223,17 @@ xresult xbox::get_char16( wchar_t* result ) const
 	return xresult::invalid_operation;
 }
 
-xresult xbox::get_string( xstring* result ) const
+xresult xbox::get_xstring( xstring** result ) const
 {
 	if( type_ == property_type::string )
 	{
-		*result = string_;
+		*result = xstring_;
 		return xresult::ok;
 	}
 	return xresult::invalid_operation;
 }
 
-xresult xbox::get_xobject( xobject const** result ) const
+xresult xbox::get_xobject( xobject** result ) const
 {
 	if( type_ == property_type::xobject )
 	{
@@ -385,18 +385,18 @@ xresult xbox::get_char16_array( int* length, wchar_t** result ) const
 	return xresult::invalid_operation;
 }
 
-xresult xbox::get_string_array( int* length, xstring** result ) const
+xresult xbox::get_string_array( int* length, xstring*** result ) const
 {
 	if( type_ == property_type::string_array )
 	{
-		*result = string_array_;
+		*result = xstring_array_;
 		*length = length_;
 		return xresult::ok;
 	}
 	return xresult::invalid_operation;
 }
 
-xresult xbox::get_xobject_array( int* length, xobject const*** result ) const
+xresult xbox::get_xobject_array( int* length, xobject*** result ) const
 {
 	if( type_ == property_type::xobject_array )
 	{

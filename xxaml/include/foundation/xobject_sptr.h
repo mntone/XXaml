@@ -113,4 +113,40 @@ namespace xxaml { namespace foundation {
 		T* value_;
 	};
 
+	template<class T>
+	bool operator==( ::std::nullptr_t, xobject_sptr<T> const& value )
+	{
+		return ( nullptr == value.value() );
+	}
+
+	template<class T>
+	bool operator!=( ::std::nullptr_t, xobject_sptr<T> const& value )
+	{
+		return ( nullptr != value.value() );
+	}
+
+	template<class T>
+	bool operator==( xobject_sptr<T> const& value, ::std::nullptr_t )
+	{
+		return ( value.value() == nullptr );
+	}
+
+	template<class T>
+	bool operator!=( xobject_sptr<T> const& value, ::std::nullptr_t )
+	{
+		return ( value.value() != nullptr );
+	}
+
+	template<class T>
+	bool operator==( xobject_sptr<T> const& value1, xobject_sptr<T> const& value2 )
+	{
+		return ( value1.value() == value2.value() );
+	}
+
+	template<class T>
+	bool operator!=( xobject_sptr<T> const& value1, xobject_sptr<T> const& value2 )
+	{
+		return ( value1.value() != value2.value() );
+	}
+
 } }
